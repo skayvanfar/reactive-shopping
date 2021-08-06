@@ -1,0 +1,27 @@
+version: '2'
+services:
+  inventory:
+    image:   skayvanfar/inventory-service:inventory
+    ports:
+      - "8081:8081"
+  order:
+    image: skayvanfar/order-service:order
+    ports:
+      - "8080:8080"
+  shipping:
+    image: skayvanfar/shipping-service:shipping
+    ports:
+      - "8082:8082"
+  frontend:
+    image: skayvanfar/frontend-service:frontend
+    ports:
+      - "80:80"
+  database:
+    image: mongo:5
+    ports:
+      - "27017:27017"
+  kafkaserver:
+    image: spotify/kafka
+    ports:
+      - 2181:2181
+      - 9092:9092
